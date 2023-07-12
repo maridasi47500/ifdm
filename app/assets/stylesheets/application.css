@@ -175,3 +175,10 @@ footer {
 	text-align: center;
 list-style-type: none;
 }
+.icon span{
+width:50px;
+height:50px;
+display:inline-grid;
+background-image:no-repeat;
+    background-size: cover;
+}
