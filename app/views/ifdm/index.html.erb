@@ -1,0 +1,49 @@
+<main>
+<h1>
+Institut de Formation aux Disciplines Musicales
+</h1>
+<p>
+Devenez l’artiste que vous rêvez d’être !
+</p>
+<%=link_to "/nos-cours-collectifs" do %>
+<%=image_tag "/assets/IFDM-Inscriptions-2023-2024.webp"%>
+<%end%>
+<%=link_to "/nos-cours-collectifs",{class: "inscrire",onmouseout: "this.classList.remove('myarrow');this.classList.add('myarrowback');setTimeout('function1()', 1000);",onmouseover: "this.classList.add('myarrow');setTimeout('function2()', 1000);"} do%>
+Cliquez pour vous inscrire<span> > </span>
+<%end%>
+<%=render Webbillet.recent.limit(1)%>
+<a class="inscrire individuel" href="<%=coursindividuel_path%>" onmouseout="this.classList.remove('myarrow');this.classList.add('myarrowback');setTimeout('function1(\'individuel\')', 1000);" onmouseover="this.classList.add('myarrow');setTimeout('function2(\'individuel\')', 1000);">Cours individuels<span> > </span></a>
+<article>
+<%=link_to coursindividuel_path do%>
+<img class="mycourse" src="/assets/COURS-INDIVIDUELS" />
+<%end%>
+</article>
+
+<a class="inscrire collectif" href="<%=courscollectif_path%>" onmouseout="this.classList.remove('myarrow');this.classList.add('myarrowback');setTimeout('function1(\'collectif\')', 1000);" onmouseover="this.classList.add('myarrow');setTimeout('function2(\'collectif\')', 1000);">Cours collectifs<span> > </span></a>
+<article>
+<%=link_to courscollectif_path do%>
+<img class="mycourse" src="/assets/COURS-COLLECTIFS" />
+<%end%>
+</article>
+<a class="inscrire stage" href="/nos-stages" onmouseout="this.classList.remove('myarrow');this.classList.add('myarrowback');setTimeout('function1(\'stage\')', 1000);" onmouseover="this.classList.add('myarrow');setTimeout('function2(\'stage\')', 1000);">Stages<span> > </span></a>
+<article>
+<%=link_to "/cours-collectifs" do%>
+<img class="mycourse" src="/assets/COURS-COLLECTIFS" />
+<%end%>
+</article>
+<h3>
+
+Regardez comment vous inscrire en ligne !
+<br>
+C’est simple et rapide !
+
+</h3>
+<div class="et_pb_module et_pb_video et_pb_video_0">
+<div class="et_pb_video_box">
+				<video controls="">
+					<source type="video/mp4" src="/video/Watch1.mp4">
+					
+				</video>
+</div>
+</div>
+</main>

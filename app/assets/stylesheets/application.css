@@ -1,0 +1,177 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+.mylink {
+margin-left:30px;
+}
+.inscrire {
+border: 1px solid green;
+padding:20px;
+line-height:50px;
+    box-shadow: 0px 0px 10px red,
+                0px 0px 30px red;
+clear:both;
+display:inherit;
+margin:30px;
+}
+.inscrire span {
+display:none;
+line-height:30px;
+
+}
+
+.individuel{
+color:blue;
+}
+.collectif{
+color:pink;
+}
+.inscrire.myarrowback {
+animation-duration: 1s;
+animation-name: autreslideInok;
+}
+.inscrire.myarrow {
+animation-duration: 1s;
+
+animation-name: autreslideIn;
+    padding-right:25px;
+}
+.inscrire.myarrowback span {
+animation-duration: 1s;
+animation-name: slideInok;
+    display:inline-block;
+}
+.inscrire.myarrow span {
+animation-duration: 1s;
+animation-name: slideIn;
+    transform: translateX(10px) rotate(0deg);
+    display:inline-block;
+}
+.collectif, .individuel,.individuel:visited, .collectif:visited, .individuel:link, .collectif:link{
+
+padding:10px;
+box-shadow:none;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(0px) rotate(0deg);
+
+  }
+  100% {
+    transform: translateX(10px) rotate(0deg);
+  }
+}
+@keyframes slideInok {
+  0% {
+    transform: translateX(10px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(0px) rotate(0deg);
+    display:none;
+  }
+}
+@keyframes autreslideIn {
+  0% {
+    padding-right:20px;
+    
+  }
+  100% {
+    padding-right:25px;
+  }
+}
+main {
+text-align:center;
+display:inline-block;
+}
+main img{
+width:100%;
+}
+@keyframes autreslideInok {
+  0% {
+    padding-right:25px;
+  }
+  100% {
+    padding-right:20px;
+  }
+}
+.billetweb hr {
+width:100px;
+margin:0 auto;
+}
+.billetweb img {
+width:100%;
+}
+.billetweb {
+border:1px solid darkgrey;
+background-color: darkgrey;
+color:white;
+padding:10px;
+}
+:visited, :visited * {
+	color: rgb(211, 138, 138) !important;
+}
+.mycourse{
+max-width:70%;
+}
+main a {
+clear:both;
+}
+.et_pb_video_0 {
+	height: 1000px;
+	min-height: 1000px;
+	max-height: 1000px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-bottom: 0px !important;
+	margin-left: 0px !important;
+	width: 100%;
+	max-width: 100%;
+}
+.et_pb_video_box {
+	display: block;
+	position: relative;
+	z-index: 1;
+	line-height: 0;
+}
+.sxc-follow-buttons img{
+width:50px;
+height:50px;
+}
+.sxc-follow-buttons {
+	text-align: center;
+	clear: both;
+	width: 100%;
+	display: block;
+	float: left;
+	text-align: center;
+}
+.sxc-follow-buttons * {
+	list-style-type: none;
+	display: inline;
+}
+footer li {
+list-style-type: none;
+	display: inline;
+}
+footer {
+	text-align: center;
+	clear: both;
+	width: 100%;
+	display: block;
+	float: left;
+	text-align: center;
+list-style-type: none;
+}

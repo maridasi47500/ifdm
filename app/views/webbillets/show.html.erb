@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Flyer:</strong>
+  <%= @webbillet.flyer %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @webbillet.url %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @webbillet.title %>
+</p>
+
+<%= link_to 'Edit', edit_webbillet_path(@webbillet) %> |
+<%= link_to 'Back', webbillets_path %>

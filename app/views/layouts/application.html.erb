@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=yield :title%><%=(yield :title).length > 0 ? " | " : ""%>IFDM | Ecole de musique</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+
+  </head>
+
+  <body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><%=image_tag "/assets/logo", width:70, height:70%></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav">
+        <li class="nav-item">
+        <%=link_to_unless_current("IFDM","/",{class:"nav-link active","aria-current" =>  "page"}) do
+link_to("IFDM","/",{class:"nav-link","aria-current" =>  "page"})
+end%>
+</li>
+        <li class="nav-item">
+        <%=link_to_unless_current("IFDM","/",{class:"mylink nav-link active","aria-current" =>  "page"}) do
+link_to("IFDM","/",{class:"mylink nav-link","aria-current" =>  "page"})
+end%>
+</li>
+<a>Nos cours</a>
+        <%=link_to_unless_current("Nos cours individuels","/nos-cours-individuels",{class:"mylink nav-link active","aria-current" =>  "page"}) do
+link_to("Nos cours individuels","/nos-cours-individuels",{class:"mylink nav-link","aria-current" =>  "page"})
+end%>
+        <%=link_to_unless_current("Nos cours collectifs","/nos-cours-collectifs",{class:"mylink nav-link active","aria-current" =>  "page"}) do
+link_to("Nos cours collectifs","/nos-cours-collectifs",{class:"mylink nav-link","aria-current" =>  "page"})
+end%>
+        <%=link_to_unless_current("Nos stages","/nos-stages",{class:"nav-link active","aria-current" =>  "page"}) do
+link_to("Nos stages","/nos-stages",{class:"mylink nav-link","aria-current" =>  "page"})
+end%>
+        <%=link_to_unless_current("Nos évènements","/nos-evenements",{class:"nav-link active","aria-current" =>  "page"}) do
+(link_to("Nos évènements","/nos-evenements",{class:"nav-link","aria-current"=>"page"}))
+end%>
+        <%=link_to_unless_current("Contact","/contact-2",{class:"nav-link active","aria-current" =>  "page"}) do
+link_to("Contact","/contact-2",{class:"nav-link","aria-current" =>  "page"})
+end%>
+ 
+
+      </div>
+    </div>
+  </div>
+</nav>
+    <%= yield %>
+<ul class="sxc-follow-buttons"><li class="sxc-follow-button">
+                        <a href="https://www.facebook.com/ifdmguyane" title="Facebook" target="_self">
+                            <img src="https://i0.wp.com/ifdm.fr/wp-content/plugins/social-media-buttons-toolbar/inc/img/social-media-icons/facebook.png?w=1080&amp;ssl=1" alt="Facebook" data-recalc-dims="1" class="jetpack-lazy-image jetpack-lazy-image--handled" data-lazy-loaded="1" loading="eager"><noscript><img data-lazy-fallback="1"
+                                src="https://i0.wp.com/ifdm.fr/wp-content/plugins/social-media-buttons-toolbar/inc/img/social-media-icons/facebook.png?w=1080&#038;ssl=1"
+                                alt="Facebook"
+                            data-recalc-dims="1"  /></noscript>
+                        </a>
+                    </li><li class="sxc-follow-button">
+                        <a href="https://www.instagram.com/ifdmguyane" title="Instagram" target="_self">
+                            <img src="https://i0.wp.com/ifdm.fr/wp-content/plugins/social-media-buttons-toolbar/inc/img/social-media-icons/instagram.png?w=1080&amp;ssl=1" alt="Instagram" data-recalc-dims="1" class="jetpack-lazy-image jetpack-lazy-image--handled" data-lazy-loaded="1" loading="eager"><noscript><img data-lazy-fallback="1"
+                                src="https://i0.wp.com/ifdm.fr/wp-content/plugins/social-media-buttons-toolbar/inc/img/social-media-icons/instagram.png?w=1080&#038;ssl=1"
+                                alt="Instagram"
+                            data-recalc-dims="1"  /></noscript>
+                        </a>
+                    </li></ul>
+<footer id="main-footer">
+				
+
+		
+				<div id="footer-bottom">
+					<div class="container clearfix">
+				<ul class="et-social-icons">
+
+	<li class="et-social-icon et-social-facebook">
+		<a href="#" class="icon">
+			<span>Facebook</span>
+		</a>
+	</li>
+	<li class="et-social-icon et-social-twitter">
+		<a href="#" class="icon">
+			<span>Twitter</span>
+		</a>
+	</li>
+	<li class="et-social-icon et-social-rss">
+		<a href="https://ifdm.fr/feed/" class="icon">
+			<span>RSS</span>
+		</a>
+	</li>
+
+</ul><div id="footer-info">École de musiques modernes</div>					</div>
+				</div>
+			</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script>
+    function function1(mystr=null) {
+      var mydiv='';
+      if (mystr){
+        mydiv+='.'+mystr;
+      }
+      document.querySelector(".inscrire"+mydiv).classList.remove("myarrowback");
+      document.querySelector(".inscrire"+mydiv).style.paddingRight="";
+    }
+    function function2(mystr=null) {
+      var mydiv='';
+      if (mystr){
+        mydiv+='.'+mystr;
+      }
+      document.querySelector(".inscrire"+mydiv).style.paddingRight="25px";
+    }
+</script>
+  </body>
+</html>
