@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+  get 'inscriptions/index'
+  resources :courses
   resources :webbillets
+  get "/forminscriptions", to: "inscription#form", as: :inscriptionform
+  get "/inscription-individuels", to: "inscription#individuels", as: :inscriptionindividuels
+  get "/inscription-collectifs", to: "inscription#collectifs", as: :inscriptioncollectifs
+  get "/cours-collectifs-de-:name", to: "courses#show", as: :noscourscollectifsde
+  get "/cours-individuels-de-:name", to: "courses#show", as: :noscoursindividuelsde
+  get "/nos-cours-:type", to: "courses#index"
   #get 'ifdm/index'
   #get 'contact/index'
   #get 'internships/index'

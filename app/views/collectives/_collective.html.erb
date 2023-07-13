@@ -1,0 +1,5 @@
+<div class="course <%=cycle('class1','class2')%>">
+<%=link_to noscourscollectifsde_path(name: collective.name.parameterize) do%>
+<img src="/assets/<%=collective.icon%>" />
+<%end%>
+</div>

@@ -1,0 +1,12 @@
+<div class="mycourse">
+<img src="/assets/<%=course.image%>" width="50%" />
+<div>
+<%=simple_format(course.description,class:"mytext")%>
+
+</div>
+<%if course.is_a?(Private)%>
+<%=link_to "Inscription",inscriptionindividuels_path%>
+<%else%>
+<%=link_to "Inscription",inscriptioncollectifs_path%>
+<%end%>
+</div>

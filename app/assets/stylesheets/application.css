@@ -182,3 +182,45 @@ display:inline-grid;
 background-image:no-repeat;
     background-size: cover;
 }
+.course.class2 {
+	position: relative;
+	clear: right;
+	float: right;
+}
+.course.class1 {
+	display: block;
+	clear: right;
+	float: left;
+}
+.courses {
+	width: 70%;
+	margin: 0 auto;
+}
+.courses .course {
+margin:10px;
+}
+.courses img {
+width:100px;
+height:100px;
+}
+h3{
+margin:0 auto;
+text-align:center;
+}
+.mycourse {
+width:90%;
+margin:0 auto;
+}
+.mycourse div{
+float:right;
+width:50%;
+}
+.mycourse img{
+float:left;
+width:50%;
+height:150px;
+
+}
+p.mytext{
+margin-left:1em;
+}

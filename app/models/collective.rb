@@ -1,0 +1,2 @@
+class Collective < Course
+end
