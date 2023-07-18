@@ -31,6 +31,9 @@ link_to("IFDM","/",{class:"mylink nav-link","aria-current" =>  "page"})
 end%>
 </li>
 <a>Nos cours</a>
+        <%=link_to_unless_current("Voir tous nos cours","/courses",{class:"mylink nav-link active","aria-current" =>  "page"}) do
+link_to("Voir tous nos cours","/courses",{class:"mylink nav-link","aria-current" =>  "page"})
+end%>
         <%=link_to_unless_current("Nos cours individuels","/nos-cours-individuels",{class:"mylink nav-link active","aria-current" =>  "page"}) do
 link_to("Nos cours individuels","/nos-cours-individuels",{class:"mylink nav-link","aria-current" =>  "page"})
 end%>
