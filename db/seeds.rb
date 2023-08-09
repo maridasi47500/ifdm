@@ -5,41 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Private.create(name:"Guitare",description:"\n\nConnaître l’harmonie et la lecture de grilles d’accords
-\nSavoir accompagner dans des styles modernes
-\nDévelopper sa technique instrumentale.
-\n✔ à partir de 8 ans
-\n✔ Durée : 1 heure
-\n✔ Forfait 4 cours 195 € ou 6 cours 279 €
-")
-Private.create(name:"Piano",description:"\nPiano d’interprétation \n
-\nApprendre à déchiffrer une partition
-\n
-\nSavoir interpréter un morceau
-\n
-\nDévelopper sa technique instrumentale.
-\n
-\n✔ à partir de 7 ans
-\n✔ Durée : 1 heure
-\n✔ Forfait 4 cours 195 € ou 6 cours 279 €")
-Private.create(name:"Piano",description:"\n\nPiano d’accompagnement 
-\n
-\nApprendre à jouer tous les accords et leur renversements
-\n
-\nSavoir jouer et accompagner dans des styles modernes variés.
-\n
-\n✔ à partir de 12 ans
-\n✔ Durée : 1 heure
-\n✔ Forfait 4 cours 195 € ou 6 cours 279 €")
-Collective.create(name:"Technique vocale",description:"
-\n
-\nPlacer sa voix efficacement
-\n
-\nMaîtriser l’appareil phonatoire
-\n
-\nConstruire son identité stylistique.
-\n
-\n✔ à partir de 14 ans
-\n✔ Durée : 1 heure
-\n✔ Tarif : 720€ (30 cours + 6 séances d’atelier orchestre d’octobre à juin)
-\n")
+Weekday.destroy_all
+Level.destroy_all
+Schedule.destroy_all
+Weekday.create([{name: "Lundi"},{name:"mardi"},{name:"mercredi"},{name:"jeudi"},{name:'venredi'}])
+Level.create([{name: "débutant"},{name:"moyen"},{name:"intermédiaire"},{name:"avancé"}])
+Schedule.create([{name:"14h30-15h30"},{name: "15h30-16h30"},{name:"16h30-17h30"},{name:"17h30-18h30"},{name:"18h30-19h30"},{name:"19h30-20h30"}])
+

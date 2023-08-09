@@ -1,7 +1,7 @@
 <div class="mycourse">
-<img src="/assets/<%=course.image%>" width="50%" />
+<img src="/uploads/<%=course.image%>" width="50%" />
 <div>
-<%=simple_format(course.description,class:"mytext")%>
+<%=simple_format(course.description.html_safe,class:"mytext")%>
 
 </div>
 <%if course.is_a?(Private)%>

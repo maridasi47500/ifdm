@@ -1,0 +1,46 @@
+<%mycourse=b.object%>
+
+
+
+
+
+
+
+
+<div class="imgChoiceWrapper" elname="choiceContDiv"><div class="addedImgWrapper customCheckBox" elname="choicesDiv" style=" position:relative;">
+<a  class="zoomIcon" href="javascript:;" onclick="ZFLive.zoomImage(this);" elname="zoom"></a>
+
+<div class="pCentre"><div class="addedImgCont largeType" 
+
+
+
+
+onclick="ZFLive.selectImage(this);"
+
+
+
+>
+
+<img formula_val="" src="/uploads/<%=mycourse.image%>">
+</div></div>
+<b  
+
+
+
+onclick="ZFLive.selectImage(this);"
+
+
+  ><%=mycourse.mytitle%></b>
+
+<%=b.check_box(onmousedown: "event.preventDefault();",id:"ImageChoice_#{b.object.rownum}",name:"ImageChoice-choice",elname:"ImageChoice",class:"radioBtnType",value:mycourse.id,formula_val:"", textassign_val:"",onclick:"ZFLive.selectImage(this);",prevVal:"false")%>
+
+
+>
+<label class="cusChoiceLabel" for="ImageChoice_<%=b.object.rownum%>"><div class="checker"></div></label></div></div>
+
+
+
+
+
+<div class="clearBoth" ></div><p class="errorMessage" elname="error" id="error-ImageChoice"></p>
+</div>

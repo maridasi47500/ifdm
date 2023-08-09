@@ -224,3 +224,7 @@ height:150px;
 p.mytext{
 margin-left:1em;
 }
+.mycourse img, .mycourse div {
+	display: table-cell;
+	float: left;
+}

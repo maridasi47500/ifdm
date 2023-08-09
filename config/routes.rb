@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :courses
   get 'inscriptions/index'
   resources :courses
@@ -16,8 +17,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "ifdm#index"
   get "ifdm", to: "ifdm#index"
-  #get "nos-cours-individuels", to: "courses#individual", as: :coursindividuel
-  #get "nos-cours-collectifs", to: "courses#group", as: :courscollectif
+  get "nos-cours-individuels", to: "courses#individual", as: :coursindividuel
+  get "nos-cours-collectifs", to: "courses#group", as: :courscollectif
   get "nos-cours-:type", to: "courses#index", as: :allcourses
   get "nos-stages", to: "internships#index"
   get "nos-evenements", to: "events#index"

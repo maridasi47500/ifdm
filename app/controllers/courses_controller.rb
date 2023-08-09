@@ -32,7 +32,8 @@ class CoursesController < ApplicationController
 
   def show
     @mytitle="Nos cours"
-    @course=Course.where("lower(name) like ?","%"+params[:name].gsub("-","%")+"%")
+    search_phrase = "lower(name) COLLATE Latin1_general_CI_AI LIKE ?"
+    @course=Course.where(search_phrase,"%"+params[:name].gsub("-","%")+"%")
     if @course[0].is_a?(Private)
       @mytitle+=" individuels de"
     elsif @course[0].is_a?(Collective)
