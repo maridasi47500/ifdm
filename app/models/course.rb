@@ -2,7 +2,7 @@ class Course < ApplicationRecord
  has_and_belongs_to_many :users, :join_table => :userhascourses
  include ActionView::Helpers::SanitizeHelper
   def self.mycourse
-   all.select("courses.*, row_number() over(partition by courses.id) as rownum")
+   all.select("courses.*, row_number() over(order by courses.id) as rownum").group(:id)
   end
  def mytitle 
    if Course.where(type:self.type,name: self.name).length > 1

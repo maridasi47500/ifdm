@@ -32,10 +32,9 @@ onclick="ZFLive.selectImage(this);"
 
   ><%=mycourse.mytitle%></b>
 
-<%=b.check_box(onmousedown: "event.preventDefault();",id:"ImageChoice_#{b.object.rownum}",name:"ImageChoice-choice",elname:"ImageChoice",class:"radioBtnType",value:mycourse.id,formula_val:"", textassign_val:"",onclick:"ZFLive.selectImage(this);",prevVal:"false")%>
+<%=b.check_box(onmousedown: "event.preventDefault();",id:"ImageChoice_#{b.object.rownum}",elname:"ImageChoice",class:"radioBtnType",value:mycourse.id,formula_val:"", textassign_val:"",onclick:"ZFLive.selectImage(this);",prevVal:"false")%>
 
 
->
 <label class="cusChoiceLabel" for="ImageChoice_<%=b.object.rownum%>"><div class="checker"></div></label></div></div>
 
 

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_scope :user do 
     post "/inscription-:mytype", to: "users/registrations#create", as: :inscriptioncollectifs_post
+
   end
-  devise_for :users
   resources :courses
   get 'inscriptions/index'
   resources :courses

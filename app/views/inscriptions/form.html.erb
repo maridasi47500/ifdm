@@ -566,12 +566,9 @@ mandatory="true" page_no="1" page_link_name="Page" showlabel=true >
 elemname="fieldContentDiv">
 
 
-<span><input onkeyup="ZFLive.configureInputMask(this);" onfocusout="ZFLive.validateFieldConstraint(this);" autocomplete="off" type="text"  maxlength="255" name="SingleLine"  value=""
-
-
-placeholder=""  
+<span><%=form.text_field :lastname, onkeyup:"ZFLive.configureInputMask(this);", onfocusout:"ZFLive.validateFieldConstraint(this);", autocomplete:"off", type:"text", maxlength:"255"%>
        
-/></span>
+</span>
 
 
 <p class="errorMessage" elname="error" id="error-SingleLine"></p>
@@ -668,12 +665,11 @@ mandatory="true" page_no="1" page_link_name="Page" showlabel=true >
 elemname="fieldContentDiv">
 
 
-<span><input onkeyup="ZFLive.configureInputMask(this);" onfocusout="ZFLive.validateFieldConstraint(this);" autocomplete="off" type="text"  maxlength="255" name="SingleLine1"  value=""
+<span><%=form.text_field :firstname, onkeyup:"ZFLive.configureInputMask(this);", onfocusout:"ZFLive.validateFieldConstraint(this);", autocomplete:"off", type:"text", maxlength:"255"%>
 
 
-placeholder=""  
        
-/></span>
+</span>
 
 
 <p class="errorMessage" elname="error" id="error-SingleLine1"></p>
@@ -779,13 +775,9 @@ elemname="fieldContentDiv">
 <span> <div class="calendarCont"> 
 
 
-<input name="Date" elname="date" id="Date-date" onchange="ZFLive.validateFieldConstraint(this);" onfocusout="checkDatePicker(this);" autocomplete="off" onclick="ZFUtil.showLiveDatePicker(this)" onfocus="ZFUtil.showLiveDatePicker(this)" type="text"  value="" 
+<%=form.date_field :dateofbirth, elname:"date", id:"Date-date", onchange:"ZFLive.validateFieldConstraint(this);", onfocusout:"checkDatePicker(this);", autocomplete:"off", onclick:"ZFUtil.showLiveDatePicker(this)", onfocus:"ZFUtil.showLiveDatePicker(this)", type:"text"%>
  
 
-placeholder=""  
-
-
-/>
 
 
 
@@ -2098,6 +2090,8 @@ choice_type="checkbox"
 
 
 <%=form.fields_for :userweekdays do |f|%>
+<%=f.hidden_field :user_id%>
+<%=f.hidden_field :weekday_id%>
 	
 <li 
 
@@ -2127,9 +2121,9 @@ mandatory="false" page_no="1" page_link_name="Page" choice_type="checkbox">
 <div class="overflow customCheckBox">
 <%=f.collection_check_boxes(:schedule_ids, Schedule.myschedule, :id, :name) do |b|%>
 
-<span class="multiAttType cusChoiceSpan"> <%=b.check_box(onmousedown:"event.preventDefault();", id:"Checkbox_#{b.object.rownum}_#{b.value}", class:"checkBoxType",name:"Checkbox",elname:"Checkbox", value:b.value, textassign_val:"",formula_val:"", onchange:"ZFLive.hideClosestFieldElemErrorDiv(this);")%>
+<span class="multiAttType cusChoiceSpan"> <%=b.check_box(onmousedown:"event.preventDefault();", id:"Checkbox_#{f.object.weekday_id}_#{b.object.rownum}_#{b.value}", class:"checkBoxType",lname:"Checkbox", value:b.value, textassign_val:"",formula_val:"", onchange:"ZFLive.hideClosestFieldElemErrorDiv(this);")%>
 
-<label for="Checkbox_<%=b.object.rownum%>_<%=b.value%>" class="checkChoice cusChoiceLabel">
+<label for="Checkbox_<%=f.object.weekday_id%>_<%=b.object.rownum%>_<%=b.value%>" class="checkChoice cusChoiceLabel">
 <div class="checker"></div><em class="cusChoiceEm"><%=b.text%></em> 
 </label> </span>
 <%end%>
@@ -2420,7 +2414,7 @@ class="customRadioBtn"
 >
 
 
-<%[:film,:internet,:facebook,:instagram,:youtube].each_with_index do  |x,i|%>
+<%[:film,:internet,:fb,:insta,:yt].each_with_index do  |x,i|%>
 
 
 <tr><th elname="matrixrowhead" row_mandatory="true" > <%=t("myuser.#{x}").html_safe%>
@@ -2432,12 +2426,12 @@ class="customRadioBtn"
 
 
 
-<td> <%=form.radio_button :"#{x}", onmousedown:"event.preventDefault();", id:"MatrixChoice3_row#{i+1}_column1", elname:"MatrixChoice3", columnValue:"Oui", columndisplay:"Oui", rowValue:t("myuser.#{x}"),matrixSelectVal:"false", onclick:"ZFLive.selectMatrixChoiceRadioType(this);" %>
+<td> <%=form.radio_button :"#{x}", true, onmousedown:"event.preventDefault();", id:"MatrixChoice3_row#{i+1}_column1", elname:"MatrixChoice3", columnValue:"Oui", columndisplay:"Oui", rowValue:t("myuser.#{x}"),matrixSelectVal:"false", onclick:"ZFLive.selectMatrixChoiceRadioType(this);" %>
 
 <label class="cusChoiceLabel" for="MatrixChoice3_row<%=i+1%>_column1"><div class="checker"></div></label> </td>
 
 
-<td> <%=form.radio_button :"#{x}", onmousedown:"event.preventDefault();", id:"MatrixChoice3_row#{i+1}_column2", elname:"MatrixChoice3", columnValue:"Non", columndisplay:"Non", rowValue:t("myuser.#{x}"),matrixSelectVal:"false", onclick:"ZFLive.selectMatrixChoiceRadioType(this);" %>
+<td> <%=form.radio_button :"#{x}", false, onmousedown:"event.preventDefault();", id:"MatrixChoice3_row#{i+1}_column2", elname:"MatrixChoice3", columnValue:"Non", columndisplay:"Non", rowValue:t("myuser.#{x}"),matrixSelectVal:"false", onclick:"ZFLive.selectMatrixChoiceRadioType(this);" %>
 
 
 <label class="cusChoiceLabel" for="MatrixChoice3_row<%=i+1%>_column2"><div class="checker"></div></label> </td>

@@ -5,14 +5,28 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    render template:"inscriptions/form", layout: false
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @user=User.new(user_params)
+    p @user
+    if @user.save
+      #bypass_sign_in(@user)
+      redirect_to root_path
+    else
+      p @user.errors.messages
+      case params[:mytype]
+      when "collectifs"
+        @mycourse=Collective.mycourse
+      when "individuels"
+        @mycourse=Private.mycourse
+      end
+      render template:"inscriptions/form", layout: false
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -41,8 +55,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
+  def user_params
+    params.require(:user).permit(:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:userweekdays_attributes=>{},:course_ids=>[])
+  end
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:course_ids=>[],:userweekdays_attributes=>{}])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:userweekdays_attributes=>{},:course_ids=>[]])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
