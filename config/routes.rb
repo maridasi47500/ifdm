@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get "/forminscriptions", to: "inscription#form", as: :inscriptionform
   get "/inscription-individuels", to: "inscriptions#individuels", as: :inscriptionindividuels
   get "/inscription-collectifs", to: "inscriptions#collectifs", as: :inscriptioncollectifs
+  post "/inscription-individuels", to: "users/registrations#create", as: :inscriptionindividuels
+  post "/inscription-collectifs", to: "users/registrations#create", as: :inscriptioncollectifs
   get "/cours-collectifs-de-:name", to: "courses#show", as: :noscourscollectifsde
   get "/cours-individuels-de-:name", to: "courses#show", as: :noscoursindividuelsde
   get "/nos-cours-:type", to: "courses#index"

@@ -1,6 +1,11 @@
 # README
-Bienvenue à l'IFDM
- devenez l'artiste ue vous rêvez d'être
+Bienvenue à l'IFDM Guyane
+ devenez l'artiste que vous rêvez d'être
+
+cours de chant
+cours de piano
+de guitare 
+ce que vous voulez
 
 cours individuels
 cours collectifs
