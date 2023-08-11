@@ -14,8 +14,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user=User.new(user_params)
     p @user
     if @user.save
-      #bypass_sign_in(@user)
-      redirect_to root_path
+      bypass_sign_in(@user)
+      render template:"inscriptions/success"
     else
       p @user.errors.messages
       case params[:mytype]
@@ -56,15 +56,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def user_params
-    params.require(:user).permit(:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:userweekdays_attributes=>{},:course_ids=>[])
+    params.require(:user).permit(:terms,:level_id,:email,:password,:password_confirmation,:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:userweekdays_attributes=>{},:course_ids=>[])
   end
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:userweekdays_attributes=>{},:course_ids=>[]])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:level_id,:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:userweekdays_attributes=>{},:course_ids=>[]])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:course_ids=>[],:userweekdays_attributes=>{}])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:level_id,:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:course_ids=>[],:userweekdays_attributes=>{}])
   end
 
   # The path used after sign up.

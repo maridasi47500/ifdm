@@ -240,6 +240,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.2)
   minitest
+  nokogiri
   puma (~> 4.1)
   rails (~> 6.0.6, >= 6.0.6.1)
   sass-rails (>= 6)

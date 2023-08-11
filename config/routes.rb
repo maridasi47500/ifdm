@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  get 'achats/cours'
   devise_scope :user do 
     post "/inscription-:mytype", to: "users/registrations#create", as: :inscriptioncollectifs_post
   end
   devise_for :users
   resources :courses
+  get 'achats-cours-:mytype', to:"achats#cours", as: :achatscours
   get 'inscriptions/index'
   resources :courses
   resources :webbillets

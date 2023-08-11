@@ -1,0 +1,30 @@
+img.payeimage {
+	width: 100px;
+	height: 100px;
+}
+p.inscription {
+	margin-bottom: 0;
+}
+.email {
+	color: #5e5a5a;
+}
+.paiement-secu {
+	color: #0b0bb0;
+}
+p.paiement-secu.mypayment {
+	margin-bottom: 0;
+}
+.payeenligne a:link, .payeenligne a:visited {
+	color: #0b0bb0;
+	font-size: 20px;
+}
+
+.autreinscription:before {
+content: "+";
+}
+.autreinscription, .autreinscription a:link, .autreinscription a:visited {
+	color: #0b0bb0;
+	border-radius: 77777777px;
+	border: 1px solid blue;
+	padding: 6px;
+}

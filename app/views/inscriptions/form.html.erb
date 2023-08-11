@@ -993,12 +993,7 @@ class="nameWrapper"
 
 
 
-<span>  <input  onfocusout="ZFLive.validateFieldConstraint(this);" autocomplete="off" type="text" maxlength="255" elname="First" name="Name1" complink="Name1_First" value="" mandatory="false"   
-
-
-placeholder="" 
-
-/>
+<span>  <%=form.text_field :resp_firstname, onfocusout:"ZFLive.validateFieldConstraint(this);", autocomplete:"off", type:"text", maxlength:"255",elname:"First", complink:"Name1_First", mandatory:"false",placeholder:"" %>
 
 
 
@@ -1020,12 +1015,9 @@ placeholder=""
 
 
 
-<span>  <input  onfocusout="ZFLive.validateFieldConstraint(this);" autocomplete="off" type="text" maxlength="255" elname="Last" name="Name1" complink="Name1_Last" value="" mandatory="false"   
+<span>  <%=form.text_field :resp_lastname, onfocusout:"ZFLive.validateFieldConstraint(this);", autocomplete:"off", maxlength:"255", elname:"Last", complink:"Name1_Last", mandatory:"false"%>
 
 
-placeholder="" 
-
-/>
 
 
 
@@ -1121,12 +1113,7 @@ mandatory="true" page_no="1" page_link_name="Page" showlabel=true >
 elemname="fieldContentDiv">
 
 
-<span><input onkeyup="ZFLive.configureInputMask(this);" onfocusout="ZFLive.validateFieldConstraint(this);" autocomplete="off" type="text"  maxlength="255" name="SingleLine2"  value=""
-
-
-placeholder=""  
-       
-/></span>
+<span><%=form.text_field :address, onkeyup:"ZFLive.configureInputMask(this);", onfocusout:"ZFLive.validateFieldConstraint(this);", autocomplete:"off", maxlength:"255",placeholder:""%></span>
 
 
 <p class="errorMessage" elname="error" id="error-SingleLine2"></p>
@@ -1223,12 +1210,7 @@ mandatory="true" page_no="1" page_link_name="Page" showlabel=true >
 elemname="fieldContentDiv">
 
 
-<span><input onkeyup="ZFLive.configureInputMask(this);" onfocusout="ZFLive.validateFieldConstraint(this);" autocomplete="off" type="text"  maxlength="255" name="SingleLine3"  value=""
-
-
-placeholder=""  
-       
-/></span>
+<span><%=form.text_field :zip, onkeyup:"ZFLive.configureInputMask(this);",onfocusout:"ZFLive.validateFieldConstraint(this);", autocomplete:"off", maxlength:"255",placeholder:"" %></span>
 
 
 <p class="errorMessage" elname="error" id="error-SingleLine3"></p>
@@ -1325,12 +1307,7 @@ mandatory="true" page_no="1" page_link_name="Page" showlabel=true >
 elemname="fieldContentDiv">
 
 
-<span><input onkeyup="ZFLive.configureInputMask(this);" onfocusout="ZFLive.validateFieldConstraint(this);" autocomplete="off" type="text"  maxlength="255" name="SingleLine4"  value=""
-
-
-placeholder=""  
-       
-/></span>
+<span><%=form.text_field :city, onkeyup:"ZFLive.configureInputMask(this);", onfocusout:"ZFLive.validateFieldConstraint(this);", autocomplete:"off", maxlength:"255", placeholder:"" %></span>
 
 
 <p class="errorMessage" elname="error" id="error-SingleLine4"></p>
@@ -1468,12 +1445,8 @@ elemname="fieldContentDiv">
 
 
 
-<input name="PhoneNumber" onfocusout="ZFLive.validateFieldConstraint(this);" autocomplete="off" id="PhoneNumber" type="text" elname="countrycode" maxlength="20" value=""  iscodeEnabled="false" phoneFormatType="2" inputmode="numeric" 
+<%=form.text_field "mobile", onfocusout:"ZFLive.validateFieldConstraint(this);", autocomplete:"off", id:"PhoneNumber", elname:"countrycode", maxlength:"20", iscodeEnabled:"false", phoneFormatType:"2", inputmode:"numeric", placeholder:""%>
 
-
-placeholder=""  
-
-/>
 
 </div>
 <p class="errorMessage" elname="error" id="error-PhoneNumber"></p>
@@ -1671,12 +1644,7 @@ elemname="fieldContentDiv">
 
 
 
-<input name="PhoneNumber1" onfocusout="ZFLive.validateFieldConstraint(this);" autocomplete="off" id="PhoneNumber1" type="text" elname="countrycode" maxlength="20" value=""  iscodeEnabled="false" phoneFormatType="2" inputmode="numeric" 
-
-
-placeholder=""  
-
-/>
+<%=form.text_field "landline", onfocusout:"ZFLive.validateFieldConstraint(this);", autocomplete:"off", id:"PhoneNumber1",elname:"countrycode", maxlength:"20", iscodeEnabled:"false", phoneFormatType:"2", inputmode:"numeric", placeholder:""%>
 
 </div>
 <p class="errorMessage" elname="error" id="error-PhoneNumber1"></p>
@@ -1861,14 +1829,113 @@ need_reconf="false">
 elemname="fieldContentDiv">
 
 
-<span elname="livefield-email-elem"><input inputmode="email" onfocusout="ZFLive.validateFieldConstraint(this);" autocomplete="off" type="text" maxlength="255" name="Email" value=""  
+<span elname="livefield-email-elem">
 
-
-placeholder=""  
-
-/>
+<%=form.text_field :email, inputmode:"email", onfocusout:"ZFLive.validateFieldConstraint(this);", autocomplete:"off", maxlength:"255",placeholder:""%>
 
 <p class="errorMessage" elname="error" id="error-Email"></p>
+ </span>
+
+  
+</div><div class="clearBoth"></div></li>
+<li
+
+
+isunique=false
+
+
+
+
+
+class="tempFrmWrapper password large"  
+
+
+elname="livefield-elem" comptype="9" id="Password-li" needdata="true" compname="Password" linkname="Password" isvisible=true   
+mandatory="true" page_no="1" page_link_name="Page" showlabel=true  
+
+
+domain_option="0"
+
+
+   
+need_reconf="false">
+  
+
+
+
+
+<label class="labelName">
+
+<span>Mot de passe</span> 
+
+<em class="important">*</em>
+
+
+</label>
+
+
+<div class="subFrmFieldsHidden subFrmFieldsHiddenCont" style="display:none" elemname="fieldHiddenDiv"><em><svg class="icon icon-Denied-1-01"><use xlink:href="#icon-rules-denied-01"></use></svg></em>
+<span>N/A</span></div><div class="tempContDiv"
+
+elemname="fieldContentDiv">
+
+
+<span elname="livefield-password-elem">
+
+<%=form.password_field :password, inputmode:"password", onfocusout:"ZFLive.validateFieldConstraint(this);", autocomplete:"off", maxlength:"255",placeholder:""%>
+
+<p class="errorMessage" elname="error" id="error-Password"></p>
+ </span>
+
+  
+</div><div class="clearBoth"></div></li>
+<li
+
+
+isunique=false
+
+
+
+
+
+class="tempFrmWrapper password-confirmation large"  
+
+
+elname="livefield-elem" comptype="9" id="PasswordConfirmation-li" needdata="true" compname="PasswordConfirmation" linkname="PasswordConfirmation" isvisible=true   
+mandatory="true" page_no="1" page_link_name="Page" showlabel=true  
+
+
+domain_option="0"
+
+
+   
+need_reconf="false">
+  
+
+
+
+
+<label class="labelName">
+
+<span>Confirmation du mot de passe</span> 
+
+<em class="important">*</em>
+
+
+</label>
+
+
+<div class="subFrmFieldsHidden subFrmFieldsHiddenCont" style="display:none" elemname="fieldHiddenDiv"><em><svg class="icon icon-Denied-1-01"><use xlink:href="#icon-rules-denied-01"></use></svg></em>
+<span>N/A</span></div><div class="tempContDiv"
+
+elemname="fieldContentDiv">
+
+
+<span elname="livefield-password-elem">
+
+<%=form.password_field :password_confirmation, inputmode:"password_confirmation", onfocusout:"ZFLive.validateFieldConstraint(this);", autocomplete:"off", maxlength:"255",placeholder:""%>
+
+<p class="errorMessage" elname="error" id="error-Password-Confirmation"></p>
  </span>
 
   
@@ -2262,9 +2329,9 @@ class="form_sBox"
 
 
 <div class="customArrow"></div>
-<%=form.select("Dropdown",{include_blank: "Sélectionnez", onchange:"ZFLive.prefillFieldLabel(this); ZFLive.hideClosestFieldElemErrorDiv(this); ZFLive.checkUniqueChoiceFld(this);  "}) do%>
+<%=form.select("level_id",{include_blank: "Sélectionnez", onchange:"ZFLive.prefillFieldLabel(this); ZFLive.hideClosestFieldElemErrorDiv(this); ZFLive.checkUniqueChoiceFld(this);  "}) do%>
   <%([Level.new(name:"Sélectionnez")]+Level.all).each do |c|%>
-    <%=content_tag(:option, c.name, value: c.id, formula_val:"",textassign_val:"")%>
+    <%=content_tag(:option, c.name, value: c.id,selected:(c.id == @user.level_id ? "selected" : ""), formula_val:"",textassign_val:"")%>
   <%end%>
 <%end%>
  
@@ -2568,7 +2635,7 @@ class="termsMsg descFld"
 
 
 <div class="termsAccept customCheckBox">
-<input onmousedown="event.preventDefault();" elname="statusCB" id="TermsConditions-input" class="checkBoxType flLeft" name="TermsConditions" type="checkbox" onchange="ZFLive.hideClosestFieldElemErrorDiv(this);"> 
+<%=form.check_box :terms,value:true,onmousedown:"event.preventDefault();", elname:"statusCB", id:"TermsConditions-input", class:"checkBoxType flLeft", type:"checkbox", onchange:"ZFLive.hideClosestFieldElemErrorDiv(this);"%> 
 
 <!-- declaration content moved to div from label to make custom choices work -->
 <label class="cusChoiceLabel" for="TermsConditions-input">

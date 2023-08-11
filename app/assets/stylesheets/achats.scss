@@ -1,0 +1,26 @@
+// Place all the styles related to the achats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.achats {
+width:100%;
+}
+.mytitle {
+width:20%;
+margin:5%;
+border:1px solid black;
+}
+.myachats {
+width:60%;
+margin:5%;
+border:1px solid black;
+}
+main.mesachats {
+	width: 100%;
+}
+
+.achats > div {
+	float: left;
+}
+.myachats .title {
+width:100%;
+}
