@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :courses
   get 'achats-cours-:mytype', to:"achats#cours", as: :achatscours
+  get 'achats-cours-:mytype/:id/ajouteraupanier', to:"achats#show", as: :achatscourspanier
   get 'inscriptions/index'
   resources :courses
   resources :webbillets
