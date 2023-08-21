@@ -1,0 +1,23 @@
+<div class="card" style="width: 18rem;flex-direction:row;">
+  <img src="/uploads/<%=course.image%>" class="card-img-top" style="width:30%;" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%=course.mytitle%></h5>
+    <p class="card-text myprice"><%=number_to_currency(course.price)%></p>
+    <p class="card-text">Aucune taxe</p>
+    <p class="card-text">Quantité<br>
+<input type="number" name="numbercourse<%=course.id%>" id="numbercourse<%=course.id%>"/>
+<a href="" class="btn btn-primary addtobasket" data-mytype="<%=params[:mytype]%>" data-id="<%=course.id%>">Ajouter au panier</a>
+</p>
+   <p class="card-text">Garanties sécurité Systempay<br>
+certifiée PCI-DSS</p> 
+<div>
+<p class="details">
+Détails du produit
+</p>
+<p>
+Référence <%=course.mytitle.upcase%>
+</p>
+</div>
+
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div id="overlay">
+  <div id="text">
+
+<div class="coursetitle"><span class="title">Produit ajouté au panier avec succès</span><span onclick="off()">X</span></div>
+
+<div>
+   <div class="card" style="width: 18rem;flex-direction:row;">
+  <img src="/uploads/<%=course.image%>" class="card-img-top" style="width:30%;" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%=course.mytitle%></h5>
+    <p class="card-text myprice"><%=number_to_currency(course.price)%></p>
+    <p class="card-text">Quantité : <span class="quantite"></span></p>
+    
+  
+
+
+  </div>
+</div>
+      <div class="card" style="width: 18rem;flex-direction:row;">
+  <div class="card-body">
+      <p class="card-text myprice">Il y a <span class="sum"></span> articles das votre panier</p>
+    <p class="card-text">Sous-total : <span class="soustotal"></span></p>
+    <p class="card-text">Total : <span class="total"></span></p>
+    
+  
+
+
+  </div>
+</div>
+
+    
+</div>
+
+
+</div>
+</div>

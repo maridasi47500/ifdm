@@ -1,4 +1,5 @@
-  <div class="col">
+  <div class="col achat">
+<%=link_to achatscourspanier_path(id: course.id,mytype: params[:mytype]) do%>
     <div class="card">
       <img src="/uploads/<%=course.image%>" class="card-img-top" alt="...">
       <div class="card-body">
@@ -6,4 +7,5 @@
         <p class="card-text"><%=number_to_currency(course.price,locale: :fr)%></p>
       </div>
     </div>
+<%end%>
   </div>

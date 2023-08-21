@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "inscriptions/success", to: "inscriptions#success", as: :moninscription
   get 'achats/cours'
   devise_scope :user do 
     post "/inscription-:mytype", to: "users/registrations#create", as: :inscriptioncollectifs_post
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   resources :courses
   get 'achats-cours-:mytype', to:"achats#cours", as: :achatscours
   get 'achats-cours-:mytype/:id/ajouteraupanier', to:"achats#show", as: :achatscourspanier
+  get 'achats-cours-:mytype/:id/add', to:"achats#add", as: :achatsadd
   get 'inscriptions/index'
   resources :courses
   resources :webbillets

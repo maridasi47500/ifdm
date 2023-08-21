@@ -56,7 +56,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def user_params
-    params.require(:user).permit(:terms,:level_id,:email,:password,:password_confirmation,:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:userweekdays_attributes=>{},:course_ids=>[])
+    params.require(:user).permit(:mytype,:terms,:level_id,:email,:password,:password_confirmation,:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:userweekdays_attributes=>{},:course_ids=>[])
   end
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:level_id,:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:userweekdays_attributes=>{},:course_ids=>[]])
@@ -68,9 +68,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    "inscriptions/success?mytype=#{resource.mytype}"
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
