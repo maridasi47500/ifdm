@@ -1,5 +1,6 @@
 class Course < ApplicationRecord
  has_and_belongs_to_many :users, :join_table => :userhascourses
+  attr_accessor :quantite
  include ActionView::Helpers::SanitizeHelper
   def self.mycourse
    all.select("courses.*, row_number() over(order by courses.id) as rownum").group(:id)

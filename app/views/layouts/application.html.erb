@@ -49,6 +49,11 @@ end%>
         <%=link_to_unless_current("Contact","/contact-2",{class:"nav-link active","aria-current" =>  "page"}) do
 link_to("Contact","/contact-2",{class:"nav-link","aria-current" =>  "page"})
 end%>
+<a class="nav-link btn btn-light" href="" role="button">Connexion</a>
+<%if user_signed_in? %>
+<a class="nav-link btn btn-primary" href="/order" role="button">Panier (<%=session["achats"].values.sum%>)</a>
+<%end%>
+
  
 
       </div>

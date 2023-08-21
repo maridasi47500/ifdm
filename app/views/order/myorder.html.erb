@@ -1,0 +1,13 @@
+<div class="col">
+<div>panier</div>
+<%=render collection: @achats, partial:"mycourse", as: :course%>
+<div class="card" style="width: 40rem;flex-direction:row;">
+  <div class="card-body" style="">
+    <p style="width:10%;" class="card-text"> </p>
+    <p style="width:10%;" class="card-text"></p>
+</div>
+</div>
+
+
+</div>
+<p><%=link_to "continuer mes achats", "/achats-cours-collectifs"%></p>

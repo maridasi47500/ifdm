@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'order/myorder'
   get "inscriptions/success", to: "inscriptions#success", as: :moninscription
   get 'achats/cours'
   devise_scope :user do 
