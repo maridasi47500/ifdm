@@ -1,0 +1,182 @@
+<div class="card" style="width: 40rem;flex-direction:row;">
+  <div class="card-body" style="">
+    <p style="width:10%;" class="card-text"><%= t('misc.articles', :count => @total) %></p>
+    <p style="width:10%;" class="card-text">Sous-Total <%=number_to_currency(@sum)%></p>
+    <p style="width:10%;" class="card-text">Total <%=number_to_currency(@sum)%></p>
+<p><a href="/okorder" class="btn btn-primary">continuer mes achats</a></p>
+</div>
+</div>
+<%if !user_signed_in?%>
+<b>connexion en tant qu'invité</b> | <%=link_to "connexion", "/users/sign_in"%>
+<%end%>
+<%=form_with url: request.path,model:@user, html:{name:"test",id:"test"} do |form|%>
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Mes informations personnelles
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+
+
+
+<p>civilité</p>
+<div>
+<div class="form-check form-check-inline">
+  <%=form.radio_button :civilite,"mme", {class:"form-check-input"}%>
+  <label class="form-check-label" for="inlineRadio1">mme</label>
+</div>
+<div class="form-check form-check-inline">
+  <%=form.radio_button :civilite,"mr", {class:"form-check-input"}%>
+  <label class="form-check-label" for="inlineRadio2">mr</label>
+</div>
+</div>
+  <div class="form-group">
+    <label for="inputAddress">Prénom</label>
+    <%=form.text_field :firstname,onchange:"$('[name=firstname]').val(this.value)", class:"form-control"%>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">nom</label>
+    <%=form.text_field :lastname,onchange:"$('[name=lastname]').val(this.value)", class:"form-control"%>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+    </div>
+<%if !user_signed_in?%>
+<p>Créer votre compte (optionnel)</p>
+<p>et gagner du temps pour votre prochaine commande</p>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+    </div>
+  </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">confirmer le mot de passe</label>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+    </div>
+  </div>
+<%else%>
+<p>changer le mot de passe (ou laisser ce champ vide pour ne pas changer le mot de passe)</p>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+    </div>
+  </div>
+<p>entrer le mot de passe pour confirmer la commande (obligatoire)</p>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">confirmer le mot de passe</label>
+      <%= f.password_field :current_password, autocomplete: "new-password", class:"form-control" %>
+    </div>
+  </div>
+<%end%>
+</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Adresse
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+  <div class="form-group">
+    <label for="inputAddress">Prénom</label>
+    <%=form.text_field :firstname,onchange:"$('[name=firstname]').val(this.value)", class:"form-control"%>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">nom</label>
+    <%=form.text_field :lastname,onchange:"$('[name=lastname]').val(this.value)", class:"form-control"%>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">societe (optional)</label>
+    <%=form.text_field :societe, class:"form-control"%>
+  </div>
+  <div class="form-group">
+    <label for="inputaddress">tva (optionel)</label>
+    <%=form.text_field :tva, class:"form-control"%>
+  </div>
+  <div class="form-group">
+    <label for="inputaddress">adresse</label>
+    <%=form.text_field :address, class:"form-control"%>
+  </div>
+  <div class="form-group">
+    <label for="inputaddress">complement d'adresse (optional)</label>
+    <%=form.text_field :complementadresse, class:"form-control"%>
+  </div>
+  <div class="form-group">
+    <label for="inputaddress">code postal</label>
+    <%=form.text_field :zip, class:"form-control"%>
+  </div>
+  <div class="form-group">
+    <label for="inputaddress">ville</label>
+    <%=form.text_field :city, class:"form-control"%>
+  </div>
+  <div class="form-group">
+    <label for="inputaddress">pays</label>
+    <%=form.text_field :country, class:"form-control"%>
+  </div>
+  <div class="form-group">
+    <label for="inputaddress">telephone</label>
+    <%=form.text_field :mobile, class:"form-control"%>
+  </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          payment
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        <%=form.fields_for :payments do |f| %>
+  <div class="form-group">
+
+    <%=f.radio_button :payonce,true, class:"form-control"%>
+    <label for="inputaddress">paiement par carte bancaire</label>
+  </div>
+  <div class="form-group">
+
+    <%=f.radio_button :payonce,false, class:"form-control"%>
+    <label for="inputaddress">paiement par carte bancaire en plusieurs fois</label>
+  </div>
+<p>choisissez votre moyen de paiement</p>
+<div>
+<div class="form-check form-check-inline">
+  <%=form.radio_button :moyen,"mastercard", {class:"form-check-input"}%>
+  <label class="form-check-label" for="inlineRadio2">mr</label>
+</div>
+<div class="form-check form-check-inline">
+  <%=form.radio_button :moyen,"visa", {class:"form-check-input"}%>
+  <label class="form-check-label" for="inlineRadio1">mme</label>
+</div>
+</div>
+<p>choisissez votre option de paiement</p>
+<%=f.collection_check_boxes(:option, [2,3,6,9], :to_i, :to_i) do |b|%>
+  <div class="form-group">
+
+    <%=b.radio_button(class:"form-control")%>
+    <label for="inputaddress"><%=b.text%> X</label>
+  </div>
+<%end%>
+
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+  <button type="submit" class="btn btn-primary">commander</button>
+<%end%>

@@ -1,4 +1,9 @@
 fr:
+  misc:
+    articles:
+      zero: "Vous n'avez pas d'articles"
+      one: "1 article"
+      other: "%{count}"
   myuser:
     film: "J'autorise l'IFDM à me filmer ou me photographier dans le cadre de ses activités pédagogiques (cours et concerts) "
     internet: "J'autorise l'IFDM à diffuser mon image sur son site Internet (www.ifdm.fr) "

@@ -448,7 +448,10 @@ ZFLive.StateFldComplinkNames = {};</script><body><!-- Google Tag Manager (noscri
 <div class="backgroundSecBg"><div elname="frmTemplate" class="templateWidth"><div class="topContainer"></div><div class="centerContainer "><div id="formDiv">
 <div id="logo-wallpaper" class="fLogowall" style="display:none"><img id="logo-wallpaper-img" src=""/></div>
 <div id="fileuploadtemplate" style="display:none" ></div>
-<%=form_with url: request.path,model:@user, html:{name:"test",id:"test"} do |form|%><input type="hidden" name="formName" value="IFDMInscriptions20232024" id="formName"/><!-- Form Perma will be sent only for PermaUrls -->
+<%#=form_with url: request.path,model:@user, html:{name:"test",id:"test"} do |form|%>
+<%= form_for(@user, as: :user, url: registration_path(:user)) do |form| %>
+
+<input type="hidden" name="formName" value="IFDMInscriptions20232024" id="formName"/><!-- Form Perma will be sent only for PermaUrls -->
 <input type="hidden" name="formPerma" value="uvbxgledp0Zo3J9ifnMj8Go-Ho7SyFIHQx84vH2H57g" id="formPerma"/><input type="hidden" name="referrerName" id="referrerName" value="null"/><input type="hidden" name="isPaymentForm" value="false" id="isPaymentForm"/><input type="hidden" name="formType" value="0" id="formType"/>
 <input type="hidden" id="zf_date_format"  dateLocale="fr" name="date_format" value="dd-MM-yyyy" id="formType"/><input type="hidden" name="isDocsPublicForm" value="false" id="isDocsPublicForm"/>
 <input type="hidden" id="mytype"  dateLocale="fr" name="mytype" value="<%=params[:action]%>" /><input type="hidden" name="isDocsPublicForm" value="false" id="isDocsPublicForm"/>

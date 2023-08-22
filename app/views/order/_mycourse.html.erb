@@ -4,7 +4,7 @@
     <p style="width:30%;" class="card-text myprice"><span><%=course.mytitle%></span><br><span><%=number_to_currency(course.price)%></span></p>
     <p style="width:10%;" class="card-text"><input type="number" value="<%=quantity%>" data-price="<%=course.price%>" onkeydown="$('.totalnbcours<%=course.id%>').html(<%=course.quantite.to_i%>*parseFloat(this.dataset.price))" id="nbcours<%=course.id%>" name="nbcours<%=course.id%>" /></p>
     <p style="width:10%;" class="card-text"> <span class="totalnbcours<%=course.id%> card-text"><%=course.quantite*course.price%></span> <br></p>
-    <p style="width:10%;" class="card-text">supprimer<br></p>
+    <p style="width:10%;" class="card-text">< a href="/delete/<%=course.id%>" onclick="">supprimer</a><br></p>
 </div>
 </div>
 

@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :payments
+  accepts_nested_attributes_for :payments, allow_destroy: true
   attr_accessor :terms
   attr_accessor :mytype
   validates :terms, acceptance: { message: "J'ai lu et j'accepte les conditions générales d'inscription." }

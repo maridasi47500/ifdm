@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'okorder', to: "order#okorder"
+  get 'delete/:id', to: "order#delete"
+  get 'order', to: "order#myorder"
   get 'order/myorder'
   get "inscriptions/success", to: "inscriptions#success", as: :moninscription
   get 'achats/cours'

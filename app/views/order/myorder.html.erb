@@ -3,8 +3,9 @@
 <%=render collection: @achats, partial:"mycourse", as: :course%>
 <div class="card" style="width: 40rem;flex-direction:row;">
   <div class="card-body" style="">
-    <p style="width:10%;" class="card-text"> </p>
-    <p style="width:10%;" class="card-text"></p>
+    <p style="width:10%;" class="card-text"><%= t('misc.articles', :count => @total) %> <%=number_to_currency(@sum)%></p>
+    <p style="width:10%;" class="card-text">Total <%=number_to_currency(@sum)%></p>
+<p><a href="/okorder" class="btn btn-primary">continuer mes achats</a></p>
 </div>
 </div>
 
