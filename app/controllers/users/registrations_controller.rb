@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
-  prepend_before_filter :require_no_authentication, only: [:cancel ]
+  prepend_before_action :require_no_authentication, only: [:cancel]
 
   # GET /resource/sign_up
   def new
@@ -11,8 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
-  def create
-    super
+  #def create
+  #  super
     #@user=User.new(user_params)
     #p @user
     #if @user.save
@@ -28,7 +28,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     #  end
     #  render template:"inscriptions/form", layout: false
     #end
-  end
+  #end
 
   # GET /resource/edit
   # def edit
@@ -61,19 +61,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:tva,:societe,:complementadresse,:civilite,:mytype,:terms,:level_id,:email,:password,:password_confirmation,:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:userweekdays_attributes=>{},:payments_attributes=>{},:course_ids=>[])
   end
   def configure_sign_up_params
-    #devise_parameter_sanitizer.permit(:sign_up, keys: [:level_id,:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:userweekdays_attributes=>{},:course_ids=>[]])
-    devise_parameter_sanitizer.permit(:sign_up,keys:[:tva,:societe,:complementadresse,:civilite,:mytype,:terms,:level_id,:email,:password,:password_confirmation,:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:userweekdays_attributes=>{},:payments_attributes=>{},:course_ids=>[]])
+    devise_parameter_sanitizer.permit(:sign_up,keys:[:lastname, :firstname, :dateofbirth, :resp_firstname, :resp_lastname, :address, :zip, :city, :mobile, :landline, :course_ids, :userweekdays_attributes, :level_id, :terms,:tva,:societe,:complementadresse,:civilite,:mytype,:terms,:level_id,:email,:password,:password_confirmation,:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:userweekdays_attributes=>{},:payments_attributes=>{},:course_ids=>[]])
+  end
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update,keys:[:lastname, :firstname, :dateofbirth, :resp_firstname, :resp_lastname, :address, :zip, :city, :mobile, :landline, :course_ids, :userweekdays_attributes, :level_id, :terms,:tva,:societe,:complementadresse,:civilite,:mytype,:terms,:level_id,:email,:password,:password_confirmation,:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:userweekdays_attributes=>{},:payments_attributes=>{},:course_ids=>[]])
   end
 
-  # If you have extra params to permit, append them to the sanitizer.
-  def configure_account_update_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:level_id,:firstname,:lastname,:address,:city,:zip,:resp_firstname,:resp_lastname,:dateofbirth,:mobile,:landline,:film,:internet,:fb,:insta,:yt,:course_ids=>[],:userweekdays_attributes=>{}])
+  def after_sign_up_path_for(resource)
+    "/inscriptions/success?mytype=#{resource.mytype}"
   end
+    def after_update_path_for(resource)
+        puts 'this is happening yoyo mama'
+        flash[:notice] = "Account succesfully updated"
+        monpaiement_path
+    end
+
 
   # The path used after sign up.
-  def after_sign_up_path_for(resource)
-    "inscriptions/success?mytype=#{resource.mytype}"
-  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

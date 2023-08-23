@@ -8,6 +8,12 @@ function off() {
 } 
 
 window.onload=function(){
+    if ($("#accordion").length > 0) {
+  $("[data-target]").click(function(){
+ $(".collapse").collapse("hide") ;
+  $($(this).data("target")).collapse("show")
+});
+}
     if ($(".addtobasket").length > 0) {
         $(".addtobasket").click(function(){
             $(".quantite").html($("#numbercourse"+$(this).data("id")).val());

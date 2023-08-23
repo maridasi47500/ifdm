@@ -1,8 +1,14 @@
 class OrderController < ApplicationController
 before_action :mescours
-  def myorder
-delete session[:achats][params[:id]]
-redirect_to "order"
+before_action :myuser, only: [:okorder]
+  def monpaiement
+  end
+  def deletemyaction
+session[:achats].delete(params[:id])
+redirect_to "/order"
+  end
+  def okorder
+    @user.payments=[Payment.new]
   end
   def myorder
 @user=User.new
@@ -18,8 +24,16 @@ def mescours
 x=Course.find a
 x.quantite=h
 x
-@sum=@achats.map{|g|g.quantite*g.price}.sum
-@total=@achats.map{|g|g.quantite}.sum
   end
+@sum=@achats.map{|g|g.quantite.to_f*g.price.to_f}.sum
+@total=@achats.map{|g|g.quantite.to_f}.sum
+
+end
+def myuser
+if user_signed_in?
+@user=current_user
+else
+@user=User.new
+end
 end
 end

@@ -454,7 +454,7 @@ ZFLive.StateFldComplinkNames = {};</script><body><!-- Google Tag Manager (noscri
 <input type="hidden" name="formName" value="IFDMInscriptions20232024" id="formName"/><!-- Form Perma will be sent only for PermaUrls -->
 <input type="hidden" name="formPerma" value="uvbxgledp0Zo3J9ifnMj8Go-Ho7SyFIHQx84vH2H57g" id="formPerma"/><input type="hidden" name="referrerName" id="referrerName" value="null"/><input type="hidden" name="isPaymentForm" value="false" id="isPaymentForm"/><input type="hidden" name="formType" value="0" id="formType"/>
 <input type="hidden" id="zf_date_format"  dateLocale="fr" name="date_format" value="dd-MM-yyyy" id="formType"/><input type="hidden" name="isDocsPublicForm" value="false" id="isDocsPublicForm"/>
-<input type="hidden" id="mytype"  dateLocale="fr" name="mytype" value="<%=params[:action]%>" /><input type="hidden" name="isDocsPublicForm" value="false" id="isDocsPublicForm"/>
+<input type="hidden" id="mytype"  dateLocale="fr" name="user[mytype]" value="<%=params[:action]%>" /><input type="hidden" name="isDocsPublicForm" value="false" id="isDocsPublicForm"/>
 <input type="hidden" name="formrid" value="" id="formrid"/>
 <input type="hidden" name="resizeform" value="0" id="resizeform"/>
 <div id="zf_utmTrack" style="display: none;"></div><div class="templateWrapper" id="formRedirectURL">
@@ -2335,7 +2335,7 @@ class="form_sBox"
 <div class="customArrow"></div>
 <%=form.select("level_id",{include_blank: "Sélectionnez", onchange:"ZFLive.prefillFieldLabel(this); ZFLive.hideClosestFieldElemErrorDiv(this); ZFLive.checkUniqueChoiceFld(this);  "}) do%>
   <%([Level.new(name:"Sélectionnez")]+Level.all).each do |c|%>
-    <%=content_tag(:option, c.name, value: c.id,selected:(c.id == @user.level_id ? "selected" : ""), formula_val:"",textassign_val:"")%>
+    <%=content_tag(:option, c.name, value: c.id,selected:(c.id == @user.level_id ? "selected" : nil), formula_val:"",textassign_val:"")%>
   <%end%>
 <%end%>
  

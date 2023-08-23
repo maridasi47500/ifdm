@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  get 'monpaiement', to: "order#monpaiement"
   get 'okorder', to: "order#okorder"
-  get 'delete/:id', to: "order#delete"
+  get 'delete/:id', to: "order#deletemyaction"
   get 'order', to: "order#myorder"
   get 'order/myorder'
   get "inscriptions/success", to: "inscriptions#success", as: :moninscription
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
   devise_scope :user do 
     post "/inscription-:mytype", to: "users/registrations#create", as: :inscriptioncollectifs_post
   end
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations',sessions: 'users/sessions'  }
   resources :courses
   get 'achats-cours-:mytype', to:"achats#cours", as: :achatscours
   get 'achats-cours-:mytype/:id/ajouteraupanier', to:"achats#show", as: :achatscourspanier

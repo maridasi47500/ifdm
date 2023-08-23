@@ -1,10 +1,10 @@
 <div class="card" style="width: 40rem;flex-direction:row;">
   <img src="/uploads/<%=course.image%>" class="card-img-top" style="width:30%;" alt="...">
-  <div class="card-body" style="flex-direction:row;">
+  <div class="card-body" style="flex-direction:row;display:flex;">
     <p style="width:30%;" class="card-text myprice"><span><%=course.mytitle%></span><br><span><%=number_to_currency(course.price)%></span></p>
-    <p style="width:10%;" class="card-text"><input type="number" value="<%=quantity%>" data-price="<%=course.price%>" onkeydown="$('.totalnbcours<%=course.id%>').html(<%=course.quantite.to_i%>*parseFloat(this.dataset.price))" id="nbcours<%=course.id%>" name="nbcours<%=course.id%>" /></p>
-    <p style="width:10%;" class="card-text"> <span class="totalnbcours<%=course.id%> card-text"><%=course.quantite*course.price%></span> <br></p>
-    <p style="width:10%;" class="card-text">< a href="/delete/<%=course.id%>" onclick="">supprimer</a><br></p>
+    <p style="width:10%;" class="card-text"><input type="number" value="<%=course.quantite%>" data-price="<%=course.price%>" onkeydown="$('.totalnbcours<%=course.id%>').html(Number(<%=course.quantite.to_i%>)*Number(parseFloat(this.dataset.price)))" style="width:100%;" id="nbcours<%=course.id%>" name="nbcours<%=course.id%>" /></p>
+    <p style="width:10%;" class="card-text"> <span class="totalnbcours<%=course.id%> card-text"><%=course.quantite.to_f*course.price.to_f%> €</span> <br></p>
+    <p style="width:10%;" class="card-text"><a href="/delete/<%=course.id%>" onclick="">supprimer</a><br></p>
 </div>
 </div>
 
