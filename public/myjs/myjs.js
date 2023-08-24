@@ -9,9 +9,18 @@ function off() {
 
 window.onload=function(){
     if ($("#accordion").length > 0) {
+        
+          $("#continuerprem").click(function(){
+ $(".collapse").collapse("hide") ;
+  $("#collapseTwo").collapse("show");
+});
+ $("#continuerdeux").click(function(){
+ $(".collapse").collapse("hide") ;
+  $("#collapseThree").collapse("show");
+});
   $("[data-target]").click(function(){
  $(".collapse").collapse("hide") ;
-  $($(this).data("target")).collapse("show")
+  $($(this).data("target")).collapse("show");
 });
 }
     if ($(".addtobasket").length > 0) {

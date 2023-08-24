@@ -1,0 +1,42 @@
+<h2>Informations pour le paiement</h2>
+<%= form_with(model: card, local: true) do |form| %>
+  <% if card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(card.errors.count, "error") %> prohibited this card from being saved:</h2>
+
+      <ul>
+        <% card.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+    <%= form.label :nb %>
+    <%= form.text_field :nb,class:"form-control" %>
+  </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+    <%= form.label :expire %>
+    <%= form.date_select("expire", order: [:month, :year]) %>
+  </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+    <%= form.label :cvc %>
+    <%= form.text_field :cvc,class:"form-control" %>
+  </div>
+  </div>
+
+    <%= form.hidden_field :sum %>
+    <%= form.hidden_field :payment_id %>
+
+  <div class="actions">
+    <%= form.submit :valider, class: "btn btn-primary" %>
+  </div>
+<% end %>

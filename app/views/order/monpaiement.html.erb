@@ -1,18 +1,76 @@
-<p>
-en combien de fois paies tu
+<div>
 <table>
-<tr>
-<td>
-nb fois
-</td>
+    <tr>
+https:///www.ifdmboutique.fr
 <td>
 date
 </td>
 
 </tr>
+<tr>
+<td>
+IFDM
+</td>
+<td>
+456789
+</td>
+
+</tr>
+<tr>
+<td>
+Référence commande
+</td>
+<td>
+<%=@payment.id%>
+</td>
+
+</tr>
+<tr>
+<td>
+Montant
+</td>
+<td>
+<%=number_to_currency(@sum)%>
+</td>
+
+</tr>
+
 </table>
 
-</p>
 <p>
-rentrez vos informations de carte bancaire
+payable en <%=t("my.option",count:@payment.option)%> ci-dessous.
+</p>
+
+<table>
+<tr>
+    <td>
+Echéance
+</td>
+<td>
+Date de vente
+</td>
+<td>
+montant
+</td>
+
+</tr>
+<%@table.each_with_index do |xx,i|%>
+<tr>
+    <td>
+<%=i+1%>
+</td>
+<td>
+<%=xx[0]%>
+</td>
+<td>
+<%=xx[1]%>
+</td>
+
+</tr>
+<%end%>
+</table>
+
+</div>
+<p>
+    <%=render "cards/form", card: @card%>
 </p>

@@ -1,4 +1,9 @@
 fr:
+  my:
+    option:
+      zero: "Vous n'avez pas d'options"
+      one: "1 échéance détaillée"
+      other: "%{count} échéances détaillées"
   misc:
     articles:
       zero: "Vous n'avez pas d'articles"
@@ -11,6 +16,11 @@ fr:
     insta: "J'autorise l'IFDM à diffuser mon image sur son compte Instagram"
     yt: "J'autorise l'IFDM à diffuser mon image sur son compte Youtube"
   activerecord:
+    attributes:
+        card:
+            nb: "Numéro de carte"
+            expire: "Expire fin"
+            cvc: "Cryptogramme visuel"
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'

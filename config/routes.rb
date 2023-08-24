@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cards
   get 'monpaiement', to: "order#monpaiement"
   get 'okorder', to: "order#okorder"
   get 'delete/:id', to: "order#deletemyaction"
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   get "inscriptions/success", to: "inscriptions#success", as: :moninscription
   get 'achats/cours'
   devise_scope :user do 
+    patch "/okorder", to: "users/registrations#update", as: :editercollectifs_post
     post "/inscription-:mytype", to: "users/registrations#create", as: :inscriptioncollectifs_post
   end
   devise_for :users, controllers: { registrations: 'users/registrations',sessions: 'users/sessions'  }

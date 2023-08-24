@@ -9,7 +9,8 @@ class AchatsController < ApplicationController
             session[:achats][params[:id]]=params[:quantite]
             total=session[:achats].to_a.map{|a,b|Course.find(a).price*b.to_i}.sum
             soustotal=params[:quantite].to_i * @course.price
-        render json: {"soustotal"=>soustotal, sum: session[:achats].values.sum, total: total}, layout: false
+        p session[:achats]    
+        render json: {"soustotal"=>soustotal, sum: session[:achats].values.map(&:to_i).sum, total: total}, layout: false
     
     end
   def cours

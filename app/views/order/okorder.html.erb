@@ -56,11 +56,11 @@
       <label for="inputPassword4">Password</label>
       <%= form.password_field :password, autocomplete: "new-password", class:"form-control" %>
     </div>
-  </div>
+ 
     <div class="form-group col-md-6">
       <label for="inputPassword4">confirmer le mot de passe</label>
       <%= form.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
-    </div>
+    
   </div>
 <%else%>
 <p>changer le mot de passe (ou laisser ce champ vide pour ne pas changer le mot de passe)</p>
@@ -68,16 +68,25 @@
       <label for="inputPassword4">Password</label>
       <%= form.password_field :password, autocomplete: "new-password", class:"form-control" %>
     </div>
-  </div>
+ 
 <p>entrer le mot de passe pour confirmer la commande (obligatoire)</p>
     <div class="form-group col-md-6">
       <label for="inputPassword4">confirmer la commande</label>
       <%= form.password_field :current_password, autocomplete: "new-password", class:"form-control" %>
     </div>
-  </div>
+  
 <%end%>
 </div>
-    </div>
+<div>
+<button type="button" class="btn btn-primary" id="continuerprem">
+          Continuer
+        </button>
+</div>
+
+</div>
+        </div>
+      </div>
+    
 
   <div class="card">
     <div class="card-header" id="headingTwo">
@@ -130,6 +139,11 @@
     <%=form.text_field :mobile, class:"form-control"%>
   </div>
       </div>
+        <div>
+<button type="button" class="btn btn-primary" id="continuerdeux">
+          Continuer
+        </button>
+</div>
     </div>
   </div>
   <div class="card">
@@ -145,22 +159,22 @@
         <%=form.fields_for :payments do |f| %>
   <div class="form-group">
 
-    <%=f.radio_button :payonce,true, class:"form-check-input"%>
+    <%=f.radio_button :payonce,1, class:"form-check-input"%>
     <label for="inputaddress">paiement par carte bancaire</label>
   </div>
   <div class="form-group">
 
-    <%=f.radio_button :payonce,false, class:"form-check-input"%>
+    <%=f.radio_button :payonce,0, class:"form-check-input"%>
     <label for="inputaddress">paiement par carte bancaire en plusieurs fois</label>
   </div>
 <p>choisissez votre moyen de paiement</p>
 <div>
 <div class="form-check form-check-inline">
-  <%=form.radio_button :moyen,"mastercard", {class:"form-check-input"}%>
+  <%=f.radio_button :moyen,"mastercard", {class:"form-check-input"}%>
   <label class="form-check-label" for="inlineRadio2">mastercar</label>
 </div>
 <div class="form-check form-check-inline">
-  <%=form.radio_button :moyen,"visa", {class:"form-check-input"}%>
+  <%=f.radio_button :moyen,"visa", {class:"form-check-input"}%>
   <label class="form-check-label" for="inlineRadio1">visa</label>
 </div>
 </div>
