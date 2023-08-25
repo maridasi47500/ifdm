@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_22_005916) do
+ActiveRecord::Schema.define(version: 2023_08_24_230900) do
+
+  create_table "cards", force: :cascade do |t|
+    t.string "nb"
+    t.date "expire"
+    t.string "cvc"
+    t.float "sum"
+    t.integer "payment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
@@ -23,6 +33,14 @@ ActiveRecord::Schema.define(version: 2023_08_22_005916) do
     t.float "price"
   end
 
+  create_table "echeances", force: :cascade do |t|
+    t.integer "payment_id"
+    t.date "date"
+    t.float "sum"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "houruserweekdays", force: :cascade do |t|
     t.integer "schedule_id"
     t.integer "userweekday_id"
@@ -30,6 +48,14 @@ ActiveRecord::Schema.define(version: 2023_08_22_005916) do
 
   create_table "levels", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "paymentcourses", force: :cascade do |t|
+    t.integer "course_id"
+    t.integer "qty"
+    t.integer "payment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -80,6 +106,7 @@ ActiveRecord::Schema.define(version: 2023_08_22_005916) do
     t.string "societe"
     t.string "complementadresse"
     t.string "civilite"
+    t.string "country"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

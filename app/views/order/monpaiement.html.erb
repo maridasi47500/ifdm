@@ -60,10 +60,10 @@ montant
 <%=i+1%>
 </td>
 <td>
-<%=xx[0]%>
+<%=l(xx[0])%>
 </td>
 <td>
-<%=xx[1]%>
+<%=number_to_currency(xx[1],locale: :fr)%>
 </td>
 
 </tr>
@@ -74,3 +74,30 @@ montant
 <p>
     <%=render "cards/form", card: @card%>
 </p>
+ <div id="overlay"> <div id="text">
+<div><span >https://bdx-test-payzen/acs/v1/...</span></div>
+<div id="wait1">
+<p>
+Loading
+</p>
+<div class="progress">
+  <div id="hello" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+</div>
+<p>
+Please wait
+</p>
+</div>
+<div id="wait2">
+<p style="background:blue;color:white;">
+simulation secure
+</p>
+
+  <img src="/uploads/paiementsverif.png" />
+
+<p>
+<div class="progress">
+  <div id="hi" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+</div>
+</p>
+</div>
+</div></div> 

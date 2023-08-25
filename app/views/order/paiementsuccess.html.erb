@@ -1,0 +1,41 @@
+<a class="btn btn-primary" href="/">Retourner à l'iFDM</a>
+<div class="card">
+<h2>Détail du paiement de la <%=@mycards.length.ordinalilize%> échéance</h2>
+<table>
+<tr>
+<td>
+IFDM
+</td>
+<td>
+SAS MELOMENIA
+</td>
+</tr>
+<tr>
+<td>
+Référence commande
+</td>
+<td>
+<%=@lastcard.payment_id%>
+</td>
+</tr>
+</table>
+<h2><%=t("mycard.#{@lastcard.payment.moyen}")%> : <%=number_to_currency(@lastcard.sum)%></h2>
+<table>
+<tr>
+<td>
+date heure
+</td>
+<td>
+<%=l(@lastcard.created_at)%>
+</td>
+</tr>
+<tr>
+<td>
+Référence commande
+</td>
+<td>
+<%=@lastcard.payment_id%>
+</td>
+</tr>
+</table>
+</div>

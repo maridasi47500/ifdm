@@ -1,41 +1,54 @@
 class OrderController < ApplicationController
 before_action :mescours
 before_action :myuser, only: [:okorder]
+  def paiementsuccess
+    @mycards=current_user.payments.last.cards
+    @lastcard=@mycards.last
+  end
   def monpaiement
     @payment=current_user.payments.last
     @table=[]
     td=Date.today
     x=[] 
     session[:achats].each do |id, nb|
-      x << Paymentcourse.create(payment_id: @payment.id, course_id: i, qty: nb)
+      x << Paymentcourse.create(payment_id: @payment.id, course_id: id, qty: nb)
     end
-    sum = x.map(&:qty).map(&:to_i).sum
-    quotient, modulus = sum.divmod(@payment.option)
+    sumqty = x.map(&:qty).map(&:to_i).sum
+    sum = x.map{|x|x.course.price.to_f*x.qty.to_f}.sum
+    mysum = (sum.to_f / (@payment.option).to_f).ceil.to_i
+    quotient, modulus = sum.divmod(mysum)
+    p "moudlus : #{modulus}"
+    p "option paiment : #{@payment.option}"
     if modulus > 0
-      if @payment.option == 1
-        @table=[[td, quotient],[(td+30.days),modulus]]
+      if @payment.option.to_i == 1
+        @table=[[td, sum]]
       else
-        x.each_with_index do |xx,i|
-          if i == (x.length - 1)
+        i=0
+        @payment.option.to_i.times do
+          if i == (@payment.option.to_i -  1)
             @table.push([td,modulus])
             Echeance.find_or_create_by(payment_id:@payment.id, date:td,sum:modulus)
           else
-            @table.push([td,quotient])
-            Echeance.find_or_create_by(payment_id:@payment.id, date:td,sum:quotient)
+            @table.push([td,mysum])
+            Echeance.find_or_create_by(payment_id:@payment.id, date:td,sum:mysum)
           end
           td+=30.days
+          i+=1
         end
       end
     else
-        x.each_with_index do |xx,i|
-          @table.push([td,quotient])
-          Echeance.find_or_create_by(payment_id:@payment.id, date:td,sum:quotient)
+        i=0
+        @payment.option.to_i.times do 
+          @table.push([td,mysum])
+          Echeance.find_or_create_by(payment_id:@payment.id, date:td,sum:mysum)
           td+=30.days
+          i+=1
         end
 
     end
-    
-    @card=Card.new(payment_id:@payment.id, sum:@table.select{|date,somme|date>= Date.today}[0][1])
+    if @payment.echeances.mesecheances.length > 0
+      @card=Card.new(payment_id:@payment.id, sum:@table.select{|date,somme|date>= Date.today}[0][1])
+    end
   end
   def deletemyaction
 session[:achats].delete(params[:id])

@@ -1,4 +1,7 @@
 fr:
+  mycard:
+    visa: "carte visa"
+    mastercard: "master card"
   my:
     option:
       zero: "Vous n'avez pas d'options"

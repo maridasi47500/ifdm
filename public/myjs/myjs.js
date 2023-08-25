@@ -8,6 +8,26 @@ function off() {
 } 
 
 window.onload=function(){
+    if ($("#payment-form").length > 0) {
+          $("#payment-form").submit(function(){
+           $.ajax({url:$(this).attr("action")+".json",type:$(this).attr("method"),
+            success:function(){
+            on();
+            $("#hello").attr("style","width:100%;");
+            setTimeout(() => {
+               console.log("Retardée d'une seconde.");
+            $("#wait1").hide();
+            $("#wait2").show();
+            setTimeout(() => {
+             window.location="/paiementsucces"
+             }, "1000");
+               console.log("Retardée d'une seconde.");
+             }, "1000");
+               });
+
+            return false;
+          });
+    }
     if ($("#accordion").length > 0) {
         
           $("#continuerprem").click(function(){
