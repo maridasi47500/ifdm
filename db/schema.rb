@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_24_230900) do
+ActiveRecord::Schema.define(version: 2023_08_29_004244) do
 
   create_table "cards", force: :cascade do |t|
     t.string "nb"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2023_08_24_230900) do
     t.integer "payment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "gmt"
+    t.integer "echeance_id"
   end
 
   create_table "courses", force: :cascade do |t|

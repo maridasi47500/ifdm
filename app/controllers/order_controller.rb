@@ -4,9 +4,11 @@ before_action :myuser, only: [:okorder]
   def paiementsuccess
     @mycards=current_user.payments.last.cards
     @lastcard=@mycards.last
+    session[:achats]={}
   end
   def monpaiement
     @payment=current_user.payments.last
+    @echeance= @payment.echeancefuturnonpayes[0]
     @table=[]
     td=Date.today
     x=[] 
@@ -46,8 +48,15 @@ before_action :myuser, only: [:okorder]
         end
 
     end
-    if @payment.echeances.mesecheances.length > 0
-      @card=Card.new(payment_id:@payment.id, sum:@table.select{|date,somme|date>= Date.today}[0][1])
+    @echeance= @payment.echeancefuturnonpayes[0]
+    p @payment.echeancefuturnonpayes.length > 0
+    p @payment.echeancefuturnonpayes
+    if @payment.echeancepassenonpayes.length > 0
+      redirect_to root_path, notice: "vous avez râté une échéance." 
+    elsif @payment.echeances.mesecheances.length > 0 and @payment.echeancefuturnonpayes.length > 0
+      @card=Card.new(payment_id:@payment.id, sum:@table.select{|date,somme|date>= Date.today}[0][1],echeance_id: @echeance.id)
+    else
+      redirect_to root_path, notice: "toutes mes échéances sont payées." 
     end
   end
   def deletemyaction
@@ -55,7 +64,7 @@ session[:achats].delete(params[:id])
 redirect_to "/order"
   end
   def okorder
-    @user.payments=[Payment.new]
+    @user.payments=[Payment.new(payonce: false, moyen: "mastercard", option: "1")]
   end
   def myorder
     @user=User.new

@@ -1,4 +1,5 @@
 class CardsController < ApplicationController
+  protect_from_forgery except: [:create]
   before_action :set_card, only: %i[ show edit update destroy ]
 
   # GET /cards or /cards.json
@@ -65,6 +66,6 @@ class CardsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def card_params
-      params.require(:card).permit(:nb, :expire, :cvc, :sum, :payment_id)
+      params.require(:card).permit(:nb, :expire, :cvc, :sum, :payment_id,:echeance_id)
     end
 end

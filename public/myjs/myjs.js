@@ -8,11 +8,24 @@ function off() {
 } 
 
 window.onload=function(){
+    if ($("#mymsg").length > 0 && $("#mymsg").html().length > 0) {
+      // Get the snackbar DIV
+      var x = document.getElementById("snackbar");
+
+      // Add the "show" class to DIV
+      x.className = "show";
+
+      // After 3 seconds, remove the show class from DIV
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+    }
     if ($("#payment-form").length > 0) {
           $("#payment-form").submit(function(){
            $.ajax({url:$(this).attr("action")+".json",type:$(this).attr("method"),
-            success:function(){
-            on();
+            data:$(this).serialize(),
+                  success:function(data){
+                                  on();
+
+                      
             $("#hello").attr("style","width:100%;");
             setTimeout(() => {
                console.log("Retardée d'une seconde.");
@@ -23,7 +36,17 @@ window.onload=function(){
              }, "1000");
                console.log("Retardée d'une seconde.");
              }, "1000");
-               });
+                  },
+                  error:function(xhr,data,thrownerror){
+          $("#wait1").hide();
+          $("#wait2").hide();
+          on();
+          $("#wait3").html(xhr.responseJSON.myerror[0]);
+          $("#wait3").append(`<a href="/">Retour à l'IFDM</a>`);
+          console.log(data,xhr.responseText,xhr.responseJSON);
+          $("#wait3").show();
+         
+               }});
 
             return false;
           });

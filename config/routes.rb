@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :cards
-  get "paiementsucces", to: "order#paiementsucces"
+  get "paiementsucces", to: "order#paiementsuccess"
   get 'monpaiement', to: "order#monpaiement"
   get 'okorder', to: "order#okorder"
   get 'delete/:id', to: "order#deletemyaction"

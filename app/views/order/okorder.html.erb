@@ -3,7 +3,7 @@
     <p style="width:10%;" class="card-text"><%= t('misc.articles', :count => @total) %></p>
     <p style="width:10%;" class="card-text">Sous-Total <%=number_to_currency(@sum)%></p>
     <p style="width:10%;" class="card-text">Total <%=number_to_currency(@sum)%></p>
-<p><a href="/okorder" class="btn btn-primary">continuer mes achats</a></p>
+<p><a href="/cours-collectifs" class="btn btn-primary">continuer mes achats</a></p>
 </div>
 </div>
 <%if !user_signed_in?%>
@@ -159,7 +159,7 @@
         <%=form.fields_for :payments do |f| %>
   <div class="form-group">
 
-    <%=f.radio_button :payonce,1, class:"form-check-input"%>
+    <%=f.radio_button :payonce,1, class:"form-check-input",onchange:"(this.checked === true ? $('.myoptionpayment').prop('checked',true) : '');"%>
     <label for="inputaddress">paiement par carte bancaire</label>
   </div>
   <div class="form-group">
@@ -179,10 +179,11 @@
 </div>
 </div>
 <p>choisissez votre option de paiement</p>
+<%=f.hidden_field :option, value:1%>
 <%=f.collection_radio_buttons(:option, [2,3,6,9], :to_i, :to_i) do |b|%>
   <div class="form-group">
 
-    <%=b.radio_button(class:"form-check-input")%>
+    <%=b.radio_button(class:"form-check-input myoptionpayment")%>
     <label for="inputaddress"><%=b.text%> X</label>
   </div>
 <%end%>

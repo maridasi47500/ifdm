@@ -1,6 +1,6 @@
 <a class="btn btn-primary" href="/">Retourner à l'iFDM</a>
 <div class="card">
-<h2>Détail du paiement de la <%=@mycards.length.ordinalilize%> échéance</h2>
+<h2>Détail du paiement de la <%=I18n.t("number.nth.ordinalize.#{@mycards.length}")%> échéance</h2>
 <table>
 <tr>
 <td>
@@ -26,15 +26,23 @@ Référence commande
 date heure
 </td>
 <td>
-<%=l(@lastcard.created_at)%>
+<%=l(@lastcard.mypaymentcreated, format: :payment)%>
 </td>
 </tr>
 <tr>
 <td>
-Référence commande
+Mon numéro de carte
 </td>
 <td>
-<%=@lastcard.payment_id%>
+<%=@lastcard.mycardnumber%>
+</td>
+</tr>
+<tr>
+<td>
+type
+</td>
+<td>
+débit vads
 </td>
 </tr>
 </table>
